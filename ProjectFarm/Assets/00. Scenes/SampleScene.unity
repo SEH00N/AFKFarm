@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 247834759}
   - component: {fileID: 247834760}
+  - component: {fileID: 247834761}
   m_Layer: 0
   m_Name: PlowState
   m_TagString: Untagged
@@ -175,6 +176,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   StateType: 2
+--- !u!114 &247834761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247834758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ade3f979e8931147b46a1844ccb686a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &309351682
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 383511776}
   - component: {fileID: 383511777}
+  - component: {fileID: 383511778}
   m_Layer: 0
   m_Name: HarvestState
   m_TagString: Untagged
@@ -263,6 +277,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   StateType: 4
+--- !u!114 &383511778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 383511775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ade3f979e8931147b46a1844ccb686a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,8 +641,9 @@ GameObject:
   - component: {fileID: 1156570995}
   - component: {fileID: 1156570996}
   - component: {fileID: 1156570997}
+  - component: {fileID: 1156570998}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Farmer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -684,7 +711,9 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
+  MaxStep: 500000
+  stat: {fileID: 11400000, guid: 02c9fda7c94f6874db313bc66f80fc07, type: 2}
+  rewardTable: {fileID: 11400000, guid: aa0cbc13838d814418701b58e787e3a9, type: 2}
 --- !u!114 &1156570997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,12 +739,26 @@ MonoBehaviour:
   m_Model: {fileID: 0}
   m_InferenceDevice: 0
   m_BehaviorType: 0
-  m_BehaviorName: My Behavior
+  m_BehaviorName: Farmer
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
   m_DeterministicInference: 0
   m_ObservableAttributeHandling: 0
+--- !u!114 &1156570998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156570992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!1 &1315406164
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,6 +769,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1315406165}
   - component: {fileID: 1315406166}
+  - component: {fileID: 1315406167}
   m_Layer: 0
   m_Name: IdleState
   m_TagString: Untagged
@@ -768,6 +812,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   StateType: 0
+--- !u!114 &1315406167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315406164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b2509588886184448d3928e86782d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idleDuration: 3
+  durationRandomness: 1
 --- !u!1 &1591199141
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +920,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2035499043}
   - component: {fileID: 2035499044}
+  - component: {fileID: 2035499045}
   m_Layer: 0
   m_Name: PatrolState
   m_TagString: Untagged
@@ -904,6 +963,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   StateType: 1
+--- !u!114 &2035499045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035499042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ade3f979e8931147b46a1844ccb686a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2079211713
 GameObject:
   m_ObjectHideFlags: 0
@@ -914,6 +985,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2079211714}
   - component: {fileID: 2079211715}
+  - component: {fileID: 2079211716}
   m_Layer: 0
   m_Name: WateringState
   m_TagString: Untagged
@@ -956,6 +1028,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   StateType: 3
+--- !u!114 &2079211716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079211713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ade3f979e8931147b46a1844ccb686a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

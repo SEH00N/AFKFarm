@@ -9,7 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bdc13197b7facb44bc2e394229c69c2, type: 3}
-  m_Name: PlayerBrainParam
+  m_Script: {fileID: 11500000, guid: 22f87034ac7fc254a870aac62ff28dfc, type: 3}
+  m_Name: FarmerStat
   m_EditorClassIdentifier: 
-  ActionFinished: 0
+  stats:
+  - StateType: 0
+    Weight: 6
+  - StateType: 1
+    Weight: 3
+  - StateType: 2
+    Weight: 7
+  - StateType: 3
+    Weight: 7
+  - StateType: 4
+    Weight: 7

@@ -6,6 +6,7 @@ namespace H00N.FSM.Farmer
         Patrol,
         Plow,
         Watering,
-        Harvest
+        Harvest,
+        END
     }
 }
