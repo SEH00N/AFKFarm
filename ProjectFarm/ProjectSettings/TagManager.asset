@@ -38,6 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Level
+    uniqueID: 502606447
+    locked: 0
+  - name: Object
+    uniqueID: 1991199835
+    locked: 0
+  - name: Farm
+    uniqueID: 2267113987
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
