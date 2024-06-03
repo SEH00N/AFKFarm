@@ -7,6 +7,8 @@ namespace H00N.Farms
     {
         public string CropName;
         public Sprite[] Growth;
-        public float GrowthRate;
+        public int GrowthStepCount => Growth.Length;
+        public int GrowthRate;
+        public GameObject CropPrefab;
     }
 }
