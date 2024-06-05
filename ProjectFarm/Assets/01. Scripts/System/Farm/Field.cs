@@ -7,7 +7,7 @@ namespace H00N.Farms
     {
         [SerializeField] private CropSO cropData = null;
         public bool IsEmpty => cropData == null;
-        public bool IsFruition => (IsEmpty == false) && growth >= cropData.GrowthStepCount;
+        public bool IsFruition => (IsEmpty == false) && growth >= (cropData.GrowthStepCount - 1);
 
         private bool isWatered = false;
         public bool IsWatered {
@@ -74,8 +74,10 @@ namespace H00N.Farms
             visual.sprite = cropData.Growth[growth];
             IsWatered = false;
 
-            if(growth >= cropData.GrowthStepCount - 1)
+            if(IsFruition)
+            {
                 DateManager.Instance.OnTickCycleEvent -= HandleTickCycle;
+            }
         }
 
         private void HandleTickCycle()

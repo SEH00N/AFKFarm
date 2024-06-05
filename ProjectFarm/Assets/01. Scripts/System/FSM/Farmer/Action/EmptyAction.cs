@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace H00N.FSM.Farmer
+namespace H00N.FSM.Farmers
 {
     public class EmptyAction : FarmerAction
     {

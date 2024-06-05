@@ -36,5 +36,10 @@ namespace H00N.Characters
             this.destination = destination;
             velocity = 0f;
         }
+
+        public void StopImmediately()
+        {
+            SetDestination(transform.position);
+        }
     }
 }

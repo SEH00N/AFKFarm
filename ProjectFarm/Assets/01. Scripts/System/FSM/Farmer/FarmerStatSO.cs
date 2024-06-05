@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace H00N.FSM.Farmer
+namespace H00N.FSM.Farmers
 {
     [CreateAssetMenu(menuName = "SO/FSM/FarmerStat")]
     public class FarmerStatSO : ScriptableObject

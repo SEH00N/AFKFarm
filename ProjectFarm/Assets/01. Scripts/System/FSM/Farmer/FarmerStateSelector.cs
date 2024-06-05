@@ -4,7 +4,7 @@ using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
-namespace H00N.FSM.Farmer
+namespace H00N.FSM.Farmers
 {
     public class FarmerStateSelector : Agent
     {

@@ -18,5 +18,5 @@ MonoBehaviour:
   - {fileID: 498817282, guid: 56f398bbce5f61044b1a049e43b094aa, type: 3}
   - {fileID: 1042806420, guid: 56f398bbce5f61044b1a049e43b094aa, type: 3}
   - {fileID: -1915881462, guid: 56f398bbce5f61044b1a049e43b094aa, type: 3}
-  GrowthRate: 3
-  CropPrefab: {fileID: 0}
+  GrowthRate: 1
+  CropPrefab: {fileID: 2919671515319282927, guid: cd3c48246e87f244fb5d19f52ecc5437, type: 3}
