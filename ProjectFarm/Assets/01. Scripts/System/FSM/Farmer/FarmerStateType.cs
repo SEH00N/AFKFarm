@@ -7,6 +7,7 @@ namespace H00N.FSM.Farmers
         Plow,
         Watering,
         Harvest,
+        Plant,
         END
     }
 }

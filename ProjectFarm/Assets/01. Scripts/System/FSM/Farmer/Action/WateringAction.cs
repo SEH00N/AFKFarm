@@ -1,6 +1,6 @@
 using H00N.Characters;
 using H00N.Farms;
-using OMG.Extensions;
+using H00N.Extensions;
 using UnityEngine;
 
 namespace H00N.FSM.Farmers

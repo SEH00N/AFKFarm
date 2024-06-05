@@ -8,7 +8,7 @@ namespace H00N.Farms
     {
         #region Test 
         #endregion
-        [SerializeField] private List<Field> fields = new List<Field>();
+        [SerializeField] private List<Farm> farms = new List<Farm>();
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -23,26 +23,50 @@ namespace H00N.Farms
         {
             field = null;
 
-            foreach(Field f in fields)
+            foreach(Farm i in farms)
             {
-                if(f.CurrentState == condition)
+                foreach(Field j in i)
                 {
-                    field = f;
-                    return true;
+                    if(j.CurrentState == condition)
+                    {
+                        field = j;
+                        return true;
+                    }
                 }
             }
 
             return false;
         }
 
-        public void AddField(Field field)
+        public bool GetField(out Farm farm, out Field field, FieldState condition)
         {
-            fields.Add(field);
+            field = null;
+            farm = null;
+
+            foreach(Farm i in farms)
+            {
+                foreach(Field j in i)
+                {
+                    if(j.CurrentState == condition)
+                    {
+                        farm = i;
+                        field = j;
+                        return true;
+                    }
+                }
+            }
+
+            return false;
         }
 
-        public void RemoveField(Field field)
+        public void AddFarm(Farm farm)
         {
-            fields.Remove(field);
+            farms.Add(farm);
+        }
+
+        public void RemoveFamr(Farm farm)
+        {
+            farms.Remove(farm);
         }
     }
 }
