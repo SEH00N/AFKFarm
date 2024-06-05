@@ -5,16 +5,24 @@ namespace H00N.FSM.Farmer
 {
     public class PatrolAction : FarmerAction
     {
+        [Header("Patrol Radius")]
         [SerializeField] float patrolInRadius = 5f;
         [SerializeField] float patrolOutRadius = 5f;
+        
+        [Header("Count")]
         [SerializeField] int patrolCount = 3;
         [SerializeField] int countRandomness = 2;
+        
+        [Header("Delay")]
+        [SerializeField] float coolDown = 1f;
+        [SerializeField] float coolDownRandomness = 0.5f;
 
         private CharacterMovement movement = null;
 
         private Vector3 patrolPos = Vector3.zero;
-        private bool isPatrolling = false;
+        private bool isCoolDown = false;
         private int count = 0;
+        private float timer = 0f;
 
         public override void Init(FSMBrain brain, FSMState state)
         {
@@ -29,6 +37,9 @@ namespace H00N.FSM.Farmer
 
             count = patrolCount + Random.Range(-countRandomness, countRandomness);
             patrolPos = transform.position;
+
+            isCoolDown = true;
+            timer = 0f;
         }
 
         public override void UpdateState()
@@ -37,22 +48,41 @@ namespace H00N.FSM.Farmer
 
             if(brainParam.ActionFinished)
                 return;
-
+            
             bool isArrived = (patrolPos - transform.position).sqrMagnitude <= 0.1f;
             if(isArrived)
             {
-                count--;
-                if(count <= 0)
+                if(isCoolDown)
                 {
-                    brainParam.ActionFinished = true;
-                    return;
+                    timer -= Time.deltaTime;
+                    if(timer <= 0f)
+                        Patrol();
                 }
-
-                patrolPos = Random.insideUnitCircle * Random.Range(patrolInRadius, patrolOutRadius);
-                movement.SetDestination(patrolPos);
-
-                isPatrolling = true;
+                else
+                {
+                    isCoolDown = true;
+                    timer = coolDown + Random.Range(-coolDownRandomness, coolDownRandomness);
+                }
             }
+        }
+
+        private void Patrol()
+        {
+            count--;
+            if (count <= 0)
+            {
+                brainParam.ActionFinished = true;
+                return;
+            }
+
+            isCoolDown = false;
+            patrolPos = GetPatrolPos();
+            movement.SetDestination(patrolPos);
+        }
+
+        private Vector3 GetPatrolPos()
+        {
+            return Random.insideUnitCircle * Random.Range(patrolInRadius, patrolOutRadius);
         }
 
         protected override bool ActionPossibility()

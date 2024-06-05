@@ -10,6 +10,11 @@ namespace H00N.Characters
         private Vector3 destination = Vector3.zero;
         private float velocity = 0f;
 
+        private void Awake()
+        {
+            destination = transform.position;
+        }
+
         private void FixedUpdate()
         {
             Vector3 directionVector = destination - transform.position;
@@ -23,7 +28,7 @@ namespace H00N.Characters
             velocity = Mathf.Min(velocity, maxSpeed);
             
             Vector3 direction = directionVector.normalized;
-            transform.position += direction * velocity * Time.fixedDeltaTime;
+            transform.position += direction * (velocity * Time.fixedDeltaTime);
         }
 
         public void SetDestination(Vector3 destination)
