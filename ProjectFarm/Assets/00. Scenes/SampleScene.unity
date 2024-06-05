@@ -447,7 +447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 372045705}
   - component: {fileID: 372045707}
-  - component: {fileID: 372045706}
+  - component: {fileID: 372045708}
   m_Layer: 0
   m_Name: WateringState
   m_TagString: Untagged
@@ -470,18 +470,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1895840439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &372045706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372045704}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ade3f979e8931147b46a1844ccb686a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &372045707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +490,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   StateType: 3
+--- !u!114 &372045708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372045704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 710500fa2c6928b4dbcbcfcded2d03a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceMargin: 0.5
+  wateringDuration: 1
 --- !u!1 &383511775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1061,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7167453572604862366, guid: 454fb4eddcfa2644b8a7362a2607666c, type: 3}
   m_PrefabInstance: {fileID: 7494984511761449486}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1080255577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1080255579}
+  - component: {fileID: 1080255580}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1080255579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080255577}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1080255580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080255577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d28136a755e3f478fe7e244bd1193c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1111415910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1530,8 +1576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec3b2681e3722d4a8295b18797f0d89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  patrolInRadius: 2
-  patrolOutRadius: 3.1
+  patrolInRadius: 4
+  patrolOutRadius: 5
   patrolCount: 2
   countRandomness: 1
   coolDown: 1
@@ -3439,6 +3485,7 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1898511305}
+  - {fileID: 1080255579}
   - {fileID: 1156570993}
   - {fileID: 1743442833}
   - {fileID: 1901491142}

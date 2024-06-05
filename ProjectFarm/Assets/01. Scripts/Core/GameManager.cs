@@ -12,5 +12,10 @@ namespace H00N
         {
             instance = this;
         }
+
+        private void Start()
+        {
+            Time.timeScale = 5f;
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.Reflection;
 
 namespace H00N.Farms
 {
@@ -18,29 +19,13 @@ namespace H00N.Farms
                 farmer.SetCurrentFarm(this);
         }
 
-        public bool GetEmptyField(out Field field)
+        public bool GetField(out Field field, FieldState condition)
         {
             field = null;
 
             foreach(Field f in fields)
             {
-                if(f.IsEmpty)
-                {
-                    field = f;
-                    return true;
-                }
-            }
-
-            return false;
-        }
-
-        public bool GetFruitionField(out Field field)
-        {
-            field = null;
-
-            foreach(Field f in fields)
-            {
-                if(f.IsFruition)
+                if(f.CurrentState == condition)
                 {
                     field = f;
                     return true;

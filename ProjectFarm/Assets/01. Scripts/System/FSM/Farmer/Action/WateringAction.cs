@@ -5,17 +5,17 @@ using UnityEngine;
 
 namespace H00N.FSM.Farmers
 {
-    public class HarvestAction : FarmerAction
+    public class WateringAction : FarmerAction
     {
         [SerializeField] float distanceMargin = 0.5f;
-        [SerializeField] float harvestDuration = 1f;
+        [SerializeField] float wateringDuration = 1f;
 
         private Farmer farmer = null;
         private CharacterMovement movement = null;
 
         private Field targetField = null;
 
-        private bool isHarvesting = false;
+        private bool isWatering = false;
 
         public override void Init(FSMBrain brain, FSMState state)
         {
@@ -42,36 +42,36 @@ namespace H00N.FSM.Farmers
             if(brainParam.ActionFinished)
                 return;
 
-            if(isHarvesting)
+            if(isWatering)
                 return;
 
             float distance = (targetField.transform.position - transform.position).magnitude;
             if (distance > distanceMargin)
                 return;
 
-            isHarvesting = true;
+            isWatering = true;
 
             movement.StopImmediately();
-            StartCoroutine(this.DelayCoroutine(harvestDuration, Harvest));
+            StartCoroutine(this.DelayCoroutine(wateringDuration, Watering));
         }
 
         public override void ExitState()
         {
             base.ExitState();
 
-            isHarvesting = false;
+            isWatering = false;
             targetField = null;
         }
 
-        private void Harvest()
+        private void Watering()
         {
-            targetField.Harvest();
+            targetField.Watering();
             brainParam.ActionFinished = true;
         }
 
         protected override bool ActionPossibility()
         {
-            return farmer.CurrentFarm.GetField(out targetField, FieldState.Fruition);
+            return farmer.CurrentFarm.GetField(out targetField, FieldState.Dried);
         }
     }
 }

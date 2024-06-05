@@ -6,8 +6,9 @@ namespace H00N.Farms
     public class Field : MonoBehaviour
     {
         [SerializeField] private CropSO cropData = null;
-        public bool IsEmpty => cropData == null;
-        public bool IsFruition => (IsEmpty == false) && growth >= (cropData.GrowthStepCount - 1);
+
+        private FieldState currentState = FieldState.Empty;
+        public FieldState CurrentState => currentState;
 
         private bool isWatered = false;
         public bool IsWatered {
@@ -44,6 +45,11 @@ namespace H00N.Farms
             visual = transform.Find("Visual").GetComponent<SpriteRenderer>();
         }
 
+        public void ChangeState(FieldState state)
+        {
+            currentState = state;
+        }
+
         public void PlantCrop(CropSO crop)
         {
             cropData = crop;
@@ -55,17 +61,19 @@ namespace H00N.Farms
 
         public void Harvest()
         {
-            if(IsFruition == false)
+            if(currentState != FieldState.Fruition)
                 return;
 
             Instantiate(cropData.CropPrefab, transform.position, Quaternion.identity);
             cropData = null;
             visual.sprite = null;
+            ChangeState(FieldState.Empty);
         }
 
         public void Watering()
         {
             IsWatered = true;
+            ChangeState(FieldState.Growing);
         }
 
         private void Grow()
@@ -73,9 +81,11 @@ namespace H00N.Farms
             growth++;
             visual.sprite = cropData.Growth[growth];
             IsWatered = false;
+            ChangeState(FieldState.Dried);
 
-            if(IsFruition)
+            if((currentState != FieldState.Empty) && growth >= (cropData.GrowthStepCount - 1))
             {
+                ChangeState(FieldState.Fruition);
                 DateManager.Instance.OnTickCycleEvent -= HandleTickCycle;
             }
         }
