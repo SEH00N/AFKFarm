@@ -7,7 +7,6 @@ namespace H00N.FSM.Farmers
 {
     public abstract class FarmingAction : FarmerAction
     {
-        [SerializeField] protected FarmerStatSO stat = null;
         [SerializeField] protected FieldState targetFieldCondition;
 
         protected Farmer farmer = null;

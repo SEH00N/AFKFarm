@@ -17,6 +17,7 @@ namespace H00N.FSM.Farmers
 
         public float ActionDuration = 1f;
         public float Reach = 0.5f;
+        public float Sight = 50f;
 
         [SerializeField] List<StatTable> stats = new List<StatTable>();
         private Dictionary<FarmerStateType, int> statTables = new Dictionary<FarmerStateType, int>();

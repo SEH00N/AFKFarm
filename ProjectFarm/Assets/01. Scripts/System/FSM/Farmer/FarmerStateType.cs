@@ -7,6 +7,7 @@ namespace H00N.FSM.Farmers
         Watering,
         Harvest,
         Plant,
+        Carrying,
         END
     }
 }

@@ -48,6 +48,8 @@ namespace H00N.FSM.Farmers
             //  - 안 갈려있는 밭, 갈려있는 밭, 씨앗이 심어져 있는 밭, 작물이 자란 밭의 갯수
             // 농부 스탯 (넣어야 되나?)
             //  - 행동 우선순위
+            // sensor.AddObservation((int)selectedState);
+            // sensor.AddObservation((int)selectedState);
             sensor.AddObservation((int)selectedState);
         }
 

@@ -1,7 +1,10 @@
+using UnityEngine;
+
 namespace H00N.FSM.Farmers
 {
     public abstract class FarmerAction : FSMAction
     {
+        [SerializeField] protected FarmerStatSO stat = null;
         protected BrainParam brainParam = null;
 
         public override void Init(FSMBrain brain, FSMState state)

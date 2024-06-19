@@ -15,7 +15,7 @@ namespace H00N
 
         private void Start()
         {
-            Time.timeScale = 5f;
+            // Time.timeScale = 5f;
         }
     }
 }

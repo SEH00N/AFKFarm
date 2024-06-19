@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using H00N.Dates;
 using UnityEngine;
-using System.Reflection;
 
 namespace H00N.Farms
 {
@@ -9,6 +9,21 @@ namespace H00N.Farms
         #region Test 
         #endregion
         [SerializeField] private List<Farm> farms = new List<Farm>();
+        [SerializeField] CropStorage storage = null;
+        public CropStorage Storage => storage;
+
+        #if UNITY_EDITOR
+        public int DriedFieldCount = 0;
+        public int FruitionFieldCount = 0;
+        public int EmptyFieldCount = 0;
+        #endif
+
+        private void Awake()
+        {
+            #if UNITY_EDITOR
+            DateManager.Instance.OnTickCycleEvent += HandleTickCycle;
+            #endif
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -64,9 +79,37 @@ namespace H00N.Farms
             farms.Add(farm);
         }
 
-        public void RemoveFamr(Farm farm)
+        public void RemoveFarm(Farm farm)
         {
             farms.Remove(farm);
         }
+
+        #if UNITY_EDITOR
+        private void HandleTickCycle()
+        {
+            DriedFieldCount = 0;
+            EmptyFieldCount = 0;
+            FruitionFieldCount = 0;
+
+            foreach(Farm i in farms)
+            {
+                foreach(Field j in i)
+                {
+                    switch(j.CurrentState)
+                    {
+                        case FieldState.Empty:
+                            EmptyFieldCount++;
+                            break;
+                        case FieldState.Dried:
+                            DriedFieldCount++;
+                            break;
+                        case FieldState.Fruition:
+                            FruitionFieldCount++;
+                            break;
+                    }
+                }
+            }
+        }
+        #endif
     }
 }

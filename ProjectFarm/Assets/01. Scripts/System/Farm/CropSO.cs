@@ -9,6 +9,6 @@ namespace H00N.Farms
         public Sprite[] Growth;
         public int GrowthStepCount => Growth.Length;
         public int GrowthRate;
-        public GameObject CropPrefab;
+        public Crop CropPrefab;
     }
 }
