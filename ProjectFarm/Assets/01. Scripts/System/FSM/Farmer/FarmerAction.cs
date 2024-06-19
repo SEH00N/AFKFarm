@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace H00N.FSM.Farmers
 {
     public abstract class FarmerAction : FSMAction

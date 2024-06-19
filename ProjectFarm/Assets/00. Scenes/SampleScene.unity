@@ -242,7 +242,7 @@ MonoBehaviour:
   onStateExitEvent:
     m_PersistentCalls:
       m_Calls: []
-  StateType: 5
+  StateType: 4
 --- !u!114 &183389956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,9 +252,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 183389952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ade3f979e8931147b46a1844ccb686a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7c91a7633f55bf447983b21e09d5860b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 02c9fda7c94f6874db313bc66f80fc07, type: 2}
+  targetFieldCondition: 0
 --- !u!1 &247834758
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +556,7 @@ MonoBehaviour:
   onStateExitEvent:
     m_PersistentCalls:
       m_Calls: []
-  StateType: 3
+  StateType: 2
 --- !u!114 &372045708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,8 +569,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 710500fa2c6928b4dbcbcfcded2d03a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceMargin: 0.5
-  wateringDuration: 1
+  stat: {fileID: 11400000, guid: 02c9fda7c94f6874db313bc66f80fc07, type: 2}
+  targetFieldCondition: 1
 --- !u!1 &383511775
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +636,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ade3f979e8931147b46a1844ccb686a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &501414121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 501414122}
+  m_Layer: 0
+  m_Name: Farms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &501414122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501414121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1807769935}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +939,7 @@ MonoBehaviour:
   onStateExitEvent:
     m_PersistentCalls:
       m_Calls: []
-  StateType: 4
+  StateType: 3
 --- !u!114 &631234300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,8 +952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ca30b1dfbbf3c4eabbb67e90ec10a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceMargin: 0.5
-  harvestDuration: 1
+  stat: {fileID: 11400000, guid: 02c9fda7c94f6874db313bc66f80fc07, type: 2}
+  targetFieldCondition: 3
 --- !u!1001 &672718838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1012,7 +1046,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1540832548}
-  - {fileID: 1807769935}
   m_Father: {fileID: 1901491142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &923892572
@@ -1630,7 +1663,7 @@ GameObject:
   - component: {fileID: 1540832554}
   - component: {fileID: 1540832553}
   m_Layer: 0
-  m_Name: GroundTile
+  m_Name: GrassGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2925,71 +2958,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentFarm: {fileID: 1540832552}
---- !u!1 &1779800130
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1779800131}
-  - component: {fileID: 1779800133}
-  - component: {fileID: 1779800132}
-  m_Layer: 0
-  m_Name: PlowState
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1779800131
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779800130}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1895840439}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1779800132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779800130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ade3f979e8931147b46a1844ccb686a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1779800133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1779800130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59f3dd580ec0c2d4d9072827072a1616, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  autoTransitioning: 0
-  onStateEnterEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  onStateExitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  StateType: 2
 --- !u!1 &1807769934
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,14 +2983,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1807769934}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 286787764}
   - {fileID: 2100936088}
-  m_Father: {fileID: 803213309}
+  m_Father: {fileID: 501414122}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1807769936
 MonoBehaviour:
@@ -3068,7 +3036,6 @@ Transform:
   m_Children:
   - {fileID: 6364550}
   - {fileID: 1532125194}
-  - {fileID: 1779800131}
   - {fileID: 372045705}
   - {fileID: 183389953}
   - {fileID: 631234297}
@@ -3522,3 +3489,4 @@ SceneRoots:
   - {fileID: 1156570993}
   - {fileID: 1743442833}
   - {fileID: 1901491142}
+  - {fileID: 501414122}

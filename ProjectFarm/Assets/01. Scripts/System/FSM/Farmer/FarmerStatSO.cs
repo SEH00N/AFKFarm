@@ -15,6 +15,9 @@ namespace H00N.FSM.Farmers
 
         public const int MAX_VALUE = 10;
 
+        public float ActionDuration = 1f;
+        public float Reach = 0.5f;
+
         [SerializeField] List<StatTable> stats = new List<StatTable>();
         private Dictionary<FarmerStateType, int> statTables = new Dictionary<FarmerStateType, int>();
 

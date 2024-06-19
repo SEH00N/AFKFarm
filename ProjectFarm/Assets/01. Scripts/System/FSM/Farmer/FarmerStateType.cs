@@ -4,7 +4,6 @@ namespace H00N.FSM.Farmers
     {
         Idle,
         Patrol,
-        Plow,
         Watering,
         Harvest,
         Plant,
